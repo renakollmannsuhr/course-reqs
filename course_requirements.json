@@ -262,7 +262,7 @@
         }
     },
     {
-        "course_code": "CSC349A",
+        "course_code": "CSC349",
         "prerequisites": {
             "all_of": [
                 {
@@ -507,7 +507,7 @@
         "course_code": "CSC425",
         "prerequisites": {
             "all_of": [
-                "CSC320 - Foundations of Computer Science"
+                "CSC320"
             ]
         }
     },
@@ -515,7 +515,7 @@
         "course_code": "CSC426",
         "prerequisites": {
             "all_of": [
-                "CSC226 - Algorithms and Data Structures II"
+                "CSC226"
             ]
         }
     },
@@ -523,7 +523,7 @@
         "course_code": "CSC427",
         "prerequisites": {
             "all_of": [
-                "CSC226 - Algorithms and Data Structures II",
+                "CSC226",
                 "SENG265 - Software Development Methods"
             ]
         }
@@ -532,20 +532,20 @@
         "course_code": "CSC428",
         "prerequisites": {
             "all_of": [
-                "CSC320 - Foundations of Computer Science"
+                "CSC320"
             ]
         }
     },
     {
-        "course_code": "CSC428A",
+        "course_code": "CSC428",
         "prerequisites": {
             "all_of": [
                 {
                     "one_of": [
                         {
                             "all_of": [
-                                "CSC226 - Algorithms and Data Structures II",
-                                "CSC225 - Algorithms and Data Structures I",
+                                "CSC226",
+                                "CSC225",
                                 "MATH222 - Discrete and Combinatorial Mathematics"
                             ]
                         }
@@ -560,7 +560,7 @@
             "all_of": [
                 {
                     "one_of": [
-                        "CSC320 - Foundations of Computer Science",
+                        "CSC320",
                         "MATH222 - Discrete and Combinatorial Mathematics"
                     ]
                 }
@@ -580,8 +580,8 @@
         "course_code": "CSC435",
         "prerequisites": {
             "all_of": [
-                "CSC320 - Foundations of Computer Science",
-                "CSC330 - Programming Languages"
+                "CSC320",
+                "CSC330"
             ]
         }
     },
@@ -589,7 +589,7 @@
         "course_code": "CSC445",
         "prerequisites": {
             "all_of": [
-                "CSC225 - Algorithms and Data Structures I",
+                "CSC225",
                 {
                     "one_of": [
                         "MATH110 - Matrix Algebra for Engineers",
@@ -605,8 +605,8 @@
             "all_of": [
                 {
                     "one_of": [
-                        "CSC115 - Fundamentals of Programming II",
-                        "CSC116 - Fundamentals of Programming with Engineering Applications II"
+                        "CSC115",
+                        "CSC116"
                     ]
                 },
                 {
@@ -626,7 +626,7 @@
         "course_code": "CSC449",
         "prerequisites": {
             "all_of": [
-                "CSC349A"
+                "CSC349"
             ]
         }
     },
@@ -754,8 +754,8 @@
         "course_code": "CSC473",
         "prerequisites": {
             "all_of": [
-                "CSC226 - Algorithms and Data Structures II (1.5)",
-                "CSC305 - Introduction to Computer Graphics (1.5)"
+                "CSC226",
+                "CSC305"
             ]
         }
     },
@@ -763,9 +763,9 @@
         "course_code": "CSC475",
         "prerequisites": {
             "two_of": [
-                "CSC330 - Programming Languages (1.5)",
-                "CSC360 - Operating Systems (1.5)",
-                "CSC370 - Database Systems (1.5)",
+                "CSC330",
+                "CSC360",
+                "CSC370",
                 "ECE260 - Continuous-Time Signals and Systems (1.5)",
                 "ECE310 - Digital Signal Processing I (1.5)",
                 "ELEC260 - Continuous-Time Signals and Systems (1.5)",

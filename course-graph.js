@@ -21,19 +21,22 @@ async function generateConnections(courses) {
         // course's one-of and all-of requirements
         // If it's not a course code generate that node as well
         for (let requirement in course['prerequisites']) {
+            if (requirement === 'pre_or_corequisites') {
+                continue;
+            }
             // Create node for top level requirement
             let requirement_id = `${course.course_code}-${requirement}`;
-            console.log(`${requirement}_join`);
             intermediate_nodes.push(
                 { data: { id: requirement_id, type: `${requirement}_join` } }
             );
 
             // Connect requirement to course
             intermediate_edges.push(
-                { data: { id: `${requirement_id}_edge`, source: course.course_code, target: requirement_id, type: `${requirement}_edge` } }
+                { data: { id: `${requirement_id}_edge1`, source: course.course_code, target: requirement_id, type: `${requirement}_edge` } }
             );
 
             // Traverse sub-requirements
+            console.log(requirement_id);
             traverseRequirement(requirement_id, course['prerequisites'][requirement], intermediate_nodes, intermediate_edges);
         }
     }
@@ -41,44 +44,69 @@ async function generateConnections(courses) {
 }
 
 // Requirement is a key-value pair where the key is the type of requirement
-// parent_id: string name of the parent node
+// parent_id: string name of the parent requirement (node id)
 // requirements: list of requirements for parent
 // intermediate_nodes: list of intermediate nodes
 // intermediate_edges: list of intermediate edges
-async function traverseRequirement(parent_id, requirements, intermediate_nodes, intermediate_edges) {
-    const parent_requirement_list = parent_id.split('-');
-    const parent_requirement_type = parent_id.split('-')[parent_requirement_list-1];
+async function traverseRequirement(parent_id, parent_requirements, intermediate_nodes, intermediate_edges) {
+    const parent_list = parent_id.split('-');
+    const parent_type = parent_id.split('-')[parent_list - 1];
 
-    for (requirement in requirements) {
-        // make a node for the top-level requirement
-        // connect requirement to parent
-        // keep going
-
+    if (typeof parent_requirements === 'string') {
+        return;
     }
-    const requirement_id = `${parent_id}-requirement`;
 
-    // Create this requirement IF it is not a course code
-    if (typeof requirement === 'string') {
-        // if no node with this id exists, create it
-        if (!intermediate_nodes.some(node => node.data.id === requirement)) {
-            intermediate_nodes.push(
-                {data: {id: requirement}}
-            );
+    function isIterable(obj) {
+        // checks for null and undefined
+        if (obj == null) {
+          return false;
         }
-    } else {
-        // Create a node for the requirement
-        intermediate_nodes.push(
-            {data: {id: requirement_id}}
-        );
+        return typeof obj[Symbol.iterator] === 'function';
+      }
+
+    if (!isIterable(parent_requirements)) {
+        console.log('PARENT_REQUIREMENTS: ', parent_requirements);
     }
 
-    // Connect requirement to its parent
-    intermediate_edges.push(
-        {data: {id: `${requirement_id}_edge`, source: parent_id, target: requirement_id}}
-    );
+    for (let requirement_obj of parent_requirements) {
+        // if the requirement_obj is a string we are done
+        // we still need to connect it back to its parent though
+        if (typeof requirement_obj === 'string') {
+            // you need to create this if it doesn't already exist
+            const requirement_id = requirement_obj;
+            if (!requirement_id.startsWith('CSC')) {
+                intermediate_nodes.push(
+                    { data: { id: requirement_id, type: 'course' } }
+                );
+            }
 
-    // If the requirement contains a list, we need to keep going
+            intermediate_edges.push(
+                { data: { id: `${requirement_id}_edge2`, source: parent_id, target: requirement_id, type: parent_type } }
+            );
+            return;
+        }
 
+        // if the requirement_obj is an object
+        for (let requirement_name in requirement_obj) {
+            // make a node for requirement_name
+            // IF it is not a course code
+            // (some pre-requisites are strings, but not course codes, so they need to be created)
+            const requirement_id = `${parent_id}-${requirement_name}`;
+            intermediate_nodes.push(
+                { data: { id: requirement_id, type: requirement_name } }
+            );
+
+            // connect requirement to parent
+            console.log('3:', requirement_id);
+            intermediate_edges.push(
+                { data: { id: `${requirement_id}_edge3`, source: parent_id, target: requirement_id, type: parent_type } }
+            );
+
+            let requirements = requirement_obj[requirement_name];
+            traverseRequirement(requirement_id, requirements, intermediate_nodes, intermediate_edges);
+        }
+            
+    }
 }
 
 // Function to create the legend
