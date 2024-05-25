@@ -97,28 +97,85 @@ async function initializeCytoscape() {
     
         style: [ // the stylesheet for the graph
             {
-                selector: 'node',
+                selector: 'node[type = "course"]',
                 style: {
-                    'background-color': '#666',
-                    'label': 'data(id)'
+                    'background-color': '#EB8137',
+                    'padding': '10px',
+                    'shape': 'round-rectangle',
+                    'corner-radius': 3,
+                    'width': 'label',
+                    'text-halign': 'center',
+                    'text-valign': 'center',
+                    'label': 'CSC110',
+                    'font-size': '15px',
                 }
             },
-    
             {
-                selector: 'edge',
+                selector: 'node[type = "one-of-join"]',
+                style: {
+                    'background-color': '#46BF14',
+                    'width': 20,
+                    'height': 20,
+
+                }
+            },
+            {
+                selector: 'node[type = "two-of-join"]',
+                style: {
+                    'background-color': '#DDEB37',
+                    'width': 20,
+                    'height': 20,
+
+                }
+            },
+            {
+                selector: 'node[type = "all-of-join"]',
+                style: {
+                    'background-color': '#3371FF',
+                    'width': 20,
+                    'height': 20,
+
+                }
+            },
+            {
+                selector: 'edge[type = "one-of-edge"]',
                 style: {
                     'width': 3,
-                    'line-color': '#ccc',
-                    'target-arrow-color': '#ccc',
+                    'line-color': '#46BF14',
+                    'target-arrow-color': '#46BF14',
                     'target-arrow-shape': 'triangle',
                     'curve-style': 'bezier'
                 }
-            }
+            },
+            {
+                selector: 'edge[type = "two-of-edge"]',
+                style: {
+                    'width': 3,
+                    'line-color': '#DDEB37',
+                    'target-arrow-color': '#DDEB37',
+                    'target-arrow-shape': 'triangle',
+                    'curve-style': 'bezier'
+                }
+            },
+            {
+                selector: 'edge[type = "all-of-edge"]',
+                style: {
+                    'width': 3,
+                    'line-color': '#3371FF',
+                    'target-arrow-color': '#3371FF',
+                    'target-arrow-shape': 'triangle',
+                    'curve-style': 'bezier'
+                }
+            },
         ],
     
         layout: {
             name: 'breadthfirst',
+            directed: true,
             spacingFactor: 2.75,
+            animate: true,
+            animationDuration: 500,
+            nodeDimensionsIncludeLabels: true
         }
     });
 }
