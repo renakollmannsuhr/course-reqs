@@ -98,6 +98,7 @@ async function initializeCytoscape() {
                     'text-valign': 'center',
                     'label': 'data(id)',
                     'font-size': '15px',
+                    'font-family': 'verdana, sans-serif'
                 }
             },
             {
@@ -112,7 +113,7 @@ async function initializeCytoscape() {
             {
                 selector: 'node[type = "two_of_join"]',
                 style: {
-                    'background-color': '#DDEB37',
+                    'background-color': '#0F6F1C',
                     'width': 20,
                     'height': 20,
 
@@ -122,6 +123,15 @@ async function initializeCytoscape() {
                 selector: 'node[type = "all_of_join"]',
                 style: {
                     'background-color': '#3371FF',
+                    'width': 20,
+                    'height': 20,
+
+                }
+            },
+            {
+                selector: 'node[type = "pre_or_corequisites_join"]',
+                style: {
+                    'background-color': '#FA7B2D',
                     'width': 20,
                     'height': 20,
 
@@ -141,8 +151,8 @@ async function initializeCytoscape() {
                 selector: 'edge[type = "two_of_edge"]',
                 style: {
                     'width': 3,
-                    'line-color': '#DDEB37',
-                    'target-arrow-color': '#DDEB37',
+                    'line-color': '#0F6F1C',
+                    'target-arrow-color': '#0F6F1C',
                     'target-arrow-shape': 'triangle',
                     'curve-style': 'bezier'
                 }
@@ -153,6 +163,16 @@ async function initializeCytoscape() {
                     'width': 3,
                     'line-color': '#3371FF',
                     'target-arrow-color': '#3371FF',
+                    'target-arrow-shape': 'triangle',
+                    'curve-style': 'bezier'
+                }
+            },
+            {
+                selector: 'edge[type = "pre_or_corequisites_edge"]',
+                style: {
+                    'width': 3,
+                    'line-color': '#FA7B2D',
+                    'target-arrow-color': '#FA7B2D',
                     'target-arrow-shape': 'triangle',
                     'curve-style': 'bezier'
                 }
