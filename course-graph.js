@@ -2,20 +2,62 @@ import cytoscape from 'https://unpkg.com/cytoscape@3.29.2/dist/cytoscape.esm.min
 
 
 // Function to fetch JSON data and generate nodes
-async function generateNodes() {
-    try {
-        // Fetch the JSON data
-        const response = await fetch('course_requirements.json');
-        const courses = await response.json();
-
+async function generateNodes(courses) {
         // Generate the list of nodes
         const nodes = courses.map(course => ({
-            data: { id: course.course_code, type: 'course' }
+            // Each course is a node itself
+            data: { id: course.course_code }
         }));
-
         return nodes;
-    } catch (error) {
-        console.error('Error fetching JSON data:', error);
+}
+
+// Function to generate intermediate connections
+async function generateConnections() {
+    // TODO: more appropriately named edges because this includes all edges
+    const intermediate_edges = [];
+    const intermediate_nodes = [];
+    for (const course of courses) {
+        // We also need to generate "intermediate nodes" for each of the
+        // course's one-of and all-of requirements
+        // If it's not a course code generate that node as well
+        for (requirement in course['prerequisites']) {
+            // Create node for top level requirement
+            requirement_id = `${course.course_code}-${requirement}`;
+            intermediate_nodes.push(
+                { data: { id: requirement_id, type: `${requirement}-join` } }
+            );
+
+            // Connect requirement to course
+            intermediate_edges.push(
+                { data: { id: `${requirement_id}-edge`, source: course.course_code, target: requirement_id, type: `${requirement}-edge` } }
+            );
+
+            //traverseRequirement(requirement_id, requirement, intermediate_nodes, intermediate_edges);
+        }
+    }
+    return intermediate_nodes, intermediate_edges;
+}
+
+// Requirement is a key-value pair where the key is the type of requirement
+// parent_id: string name of the parent node
+// requirement: requirement object
+// intermediate_nodes: list of intermediate nodes
+// intermediate_edges: list of intermediate edges
+async function traverseRequirement(parent_id, requirement, intermediate_nodes, intermediate_edges) {
+    // Create requirement IF it is not a course code
+    requirement_id = `${course.course_code}-requirement`;
+    intermediate_nodes.push(
+        {data: {id: requirement_id}}
+    );
+
+    // Connect requirement to its parent
+    intermediate_edges.push(
+        {data: {id: `${requirement_id}-edge`, source: parent_id, target: requirement_id}}
+    );
+
+    // If the requirement is a course code, we're done
+    if (requirement['type'] === 'course') {
+        return;
     }
 }
 
@@ -23,8 +65,18 @@ async function generateNodes() {
 
 // Function to initialize Cytoscape
 async function initializeCytoscape() {
+    // Fetch JSON data
+    try {
+        const response = await fetch('course_requirements.json');
+        const courses = await response.json();
+    } catch (error) {
+        console.error('Error fetching JSON data:', error);
+    }
+
     // Generate nodes
-    const nodes = await generateNodes();
+    const nodes = await generateNodes(courses);
+
+    const connections = await generateConnections(courses);
 
     // Initialize Cytoscape
     var cy = cytoscape({
