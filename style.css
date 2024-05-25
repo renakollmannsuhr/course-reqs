@@ -1,0 +1,7 @@
+/* Style for the graph container */
+#cy {
+    width: 100%;
+    height: 600px;
+    display: block;
+    border: 1px solid #ccc;
+}
