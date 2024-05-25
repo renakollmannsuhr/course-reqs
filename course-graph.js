@@ -6,7 +6,7 @@ async function generateNodes(courses) {
         // Generate the list of nodes
         const nodes = courses.map(course => ({
             // Each course is a node itself
-            data: { id: course.course_code }
+            data: { id: course.course_code, type: 'course' }
         }));
         return nodes;
 }
@@ -23,13 +23,14 @@ async function generateConnections(courses) {
         for (let requirement in course['prerequisites']) {
             // Create node for top level requirement
             let requirement_id = `${course.course_code}-${requirement}`;
+            console.log(`${requirement}_join`);
             intermediate_nodes.push(
-                { data: { id: requirement_id, type: `${requirement}-join` } }
+                { data: { id: requirement_id, type: `${requirement}_join` } }
             );
 
             // Connect requirement to course
             intermediate_edges.push(
-                { data: { id: `${requirement_id}-edge`, source: course.course_code, target: requirement_id, type: `${requirement}-edge` } }
+                { data: { id: `${requirement_id}_edge`, source: course.course_code, target: requirement_id, type: `${requirement}_edge` } }
             );
 
             //traverseRequirement(requirement_id, requirement, intermediate_nodes, intermediate_edges);
@@ -45,14 +46,14 @@ async function generateConnections(courses) {
 // intermediate_edges: list of intermediate edges
 async function traverseRequirement(parent_id, requirement, intermediate_nodes, intermediate_edges) {
     // Create requirement IF it is not a course code
-    requirement_id = `${course.course_code}-requirement`;
+    requirement_id = `${course.course_code}_requirement`;
     intermediate_nodes.push(
         {data: {id: requirement_id}}
     );
 
     // Connect requirement to its parent
     intermediate_edges.push(
-        {data: {id: `${requirement_id}-edge`, source: parent_id, target: requirement_id}}
+        {data: {id: `${requirement_id}_edge`, source: parent_id, target: requirement_id}}
     );
 
     // If the requirement is a course code, we're done
@@ -81,16 +82,7 @@ async function initializeCytoscape() {
         elements: [ // list of graph elements to start with
             ...nodes,
             ...elements[0],
-            //...elements[1],
-            {
-                data: {id: "a"}
-            },
-            {
-                data: {id: "b"}
-            },
-            { // example edge
-                data: { id: 'ab', source: 'a', target: 'b' }
-            }
+            ...elements[1],
         ],
     
         style: [ // the stylesheet for the graph
@@ -104,12 +96,12 @@ async function initializeCytoscape() {
                     'width': 'label',
                     'text-halign': 'center',
                     'text-valign': 'center',
-                    'label': 'CSC110',
+                    'label': 'data(id)',
                     'font-size': '15px',
                 }
             },
             {
-                selector: 'node[type = "one-of-join"]',
+                selector: 'node[type = "one_of_join"]',
                 style: {
                     'background-color': '#46BF14',
                     'width': 20,
@@ -118,7 +110,7 @@ async function initializeCytoscape() {
                 }
             },
             {
-                selector: 'node[type = "two-of-join"]',
+                selector: 'node[type = "two_of_join"]',
                 style: {
                     'background-color': '#DDEB37',
                     'width': 20,
@@ -127,7 +119,7 @@ async function initializeCytoscape() {
                 }
             },
             {
-                selector: 'node[type = "all-of-join"]',
+                selector: 'node[type = "all_of_join"]',
                 style: {
                     'background-color': '#3371FF',
                     'width': 20,
@@ -136,7 +128,7 @@ async function initializeCytoscape() {
                 }
             },
             {
-                selector: 'edge[type = "one-of-edge"]',
+                selector: 'edge[type = "one_of_edge"]',
                 style: {
                     'width': 3,
                     'line-color': '#46BF14',
@@ -146,7 +138,7 @@ async function initializeCytoscape() {
                 }
             },
             {
-                selector: 'edge[type = "two-of-edge"]',
+                selector: 'edge[type = "two_of_edge"]',
                 style: {
                     'width': 3,
                     'line-color': '#DDEB37',
@@ -156,7 +148,7 @@ async function initializeCytoscape() {
                 }
             },
             {
-                selector: 'edge[type = "all-of-edge"]',
+                selector: 'edge[type = "all_of_edge"]',
                 style: {
                     'width': 3,
                     'line-color': '#3371FF',
