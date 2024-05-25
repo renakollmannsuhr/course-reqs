@@ -1,8 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    padding: 2px;
+}
+p {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 10px;
+}
+
 /* Style for the graph container */
 #cy {
     width: 100%;
     height: 600px;
     display: block;
     border: 1px solid #ccc;
+}
+/* Style for the graph legend */
+.legend {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: row; /* Arrange legend items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    font-family: Arial, Helvetica, sans-serif;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
 
+.color-box {
+    width: 50px;  /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    background-color: #46BF14; /* Adjust the color as needed */
+    display: inline-block; /* Ensures the box stays inline with text or other elements */
+    margin-right: 10px; /* Space between the box and text */
+}
+
+.license {
+    text-align: center; 
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
 }

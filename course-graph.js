@@ -62,7 +62,54 @@ async function traverseRequirement(parent_id, requirement, intermediate_nodes, i
     }
 }
 
+// Function to create the legend
+function createLegend() {
+    const legend = document.getElementById('legend');
+    const items = [
+        { color: '#EB8137', label: 'Course Node' },
+        { color: '#46BF14', label: '"Requires One-of the Above" Group Node' },
+        { color: '#DDEB37', label: '"Requires Two-of the Above" Group Node' },
+        { color: '#3371FF', label: '"Requires All-of the Above" Group Node' },
+        //{ color: '#46BF14', label: 'One-of Edge' },
+        //{ color: '#DDEB37', label: 'Two-of Edge' },
+        //{ color: '#3371FF', label: 'All-of Edge' }
+    ];
 
+    items.forEach(item => {
+        const legendItem = document.createElement('div');
+        legendItem.className = 'legend-item';
+
+        const colorBox = document.createElement('div');
+        colorBox.className = 'legend-color';
+        colorBox.style.backgroundColor = item.color;
+
+        // if item is a node, make it round except for course nodes
+        if (item.label.includes('Node') && !item.label.includes('Course')) {
+            colorBox.style.borderRadius = '50%';
+            colorBox.style.width = '20px';
+            colorBox.style.height = '20px';
+        } else if (item.label.includes('Course')) {
+            // course nodes should remain rectangular
+            colorBox.style.width = '35px';
+            colorBox.style.height = '20px';
+            colorBox.style.borderRadius = '0px';
+        }
+
+        // if item is an edge, make it a line
+        if (item.label.includes('Edge')) {
+            colorBox.style.width = '50px';
+            colorBox.style.height = '10px';
+            colorBox.style.borderRadius = '0px';
+        }
+
+        const label = document.createElement('span');
+        label.textContent = item.label;
+
+        legendItem.appendChild(colorBox);
+        legendItem.appendChild(label);
+        legend.appendChild(legendItem);
+    });
+}
 
 // Function to initialize Cytoscape
 async function initializeCytoscape() {
@@ -188,6 +235,9 @@ async function initializeCytoscape() {
             nodeDimensionsIncludeLabels: true
         }
     });
+
+    // Create the legend
+    createLegend();
 }
 
 // Call the function to initialize Cytoscape once the DOM is fully loaded
