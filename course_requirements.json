@@ -1,0 +1,778 @@
+[
+    {
+        "course_code": "CSC106",
+        "prerequisites": {
+            "all_of": []
+        }
+    },
+    {
+        "course_code": "CSC110",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "Foundations of Math 12",
+                        "Mathematics 12",
+                        "Pre-Calculus 12"
+                    ]
+                },
+                {
+                    "one_of": [
+                        "MATH100",
+                        "MATH102",
+                        "MATH109",
+                        "MATH120"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC111",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "Foundations of Math 12",
+                        "Mathematics 12",
+                        "Pre-Calculus 12"
+                    ]
+                },
+                {
+                    "one_of": [
+                        "MATH100",
+                        "MATH109",
+                        "MATH120"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC115",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "CSC110",
+                        "CSC111"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC116",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "CSC110",
+                        "CSC111"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC130",
+        "prerequisites": {
+            "all_of": []
+        }
+    },
+    {
+        "course_code": "CSC167",
+        "prerequisites": {
+            "all_of": []
+        }
+    },
+    {
+        "course_code": "CSC205",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "MATH151",
+                        "MATH211"
+                    ]
+                }
+            ],
+            "pre_or_corequisites": {
+                "all_of": [
+                    {
+                        "one_of": [
+                            "MATH151",
+                            "MATH211"
+                        ]
+                    },
+                    {
+                        "all_of": [
+                            "SENG265"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "course_code": "CSC225",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "CSC115",
+                        "CSC116"
+                    ]
+                },
+                {
+                    "all_of": [
+                        "MATH122"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC226",
+        "prerequisites": {
+            "all_of": [
+                "CSC225"
+            ],
+            "pre_or_corequisites": {
+                "one_of": [
+                    "GEOG226",
+                    "PSYC300A",
+                    "STAT254",
+                    "STAT255",
+                    "STAT260"
+                ]
+            }
+        }
+    },
+    {
+        "course_code": "CSC230",
+        "prerequisites": {
+            "one_of": [
+                "CSC115",
+                "CSC116"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC299",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "two_of": [
+                        {
+                            "one_of": [
+                                "CSC115"
+                            ]
+                        },
+                        {
+                            "one_of": [
+                                "CSC226"
+                            ]
+                        },
+                        {
+                            "one_of": [
+                                "CSC230"
+                            ]
+                        },
+                        {
+                            "one_of": [
+                                "SENG265"
+                            ]
+                        }
+                    ]
+                },
+                "permission_of_department"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC305",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "all_of": [
+                        "CSC225",
+                        "SENG265"
+                    ]
+                },
+                {
+                    "one_of": [
+                        "MATH110",
+                        "MATH211"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC320",
+        "prerequisites": {
+            "all_of": [
+                "CSC226"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC322",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "CSC115",
+                        "CSC116"
+                    ]
+                },
+                {
+                    "one_of": [
+                        "MATH122",
+                        "PHIL203"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC330",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "all_of": [
+                        "CSC226",
+                        "SENG265"
+                    ]
+                },
+                {
+                    "one_of": [
+                        "CSC230",
+                        "CENG255",
+                        "ECE255"
+                    ]
+                }
+            ],
+            "pre_or_corequisites": {
+                "all_of": [
+                    "CSC320"
+                ]
+            }
+        }
+    },
+    {
+        "course_code": "CSC349A",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "CSC110",
+                        "CSC111"
+                    ]
+                },
+                {
+                    "one_of": [
+                        "MATH110",
+                        "MATH211"
+                    ]
+                },
+                {
+                    "one_of": [
+                        {
+                            "all_of": [
+                                "MATH200",
+                                "MATH201"
+                            ]
+                        },
+                        {
+                            "all_of": [
+                                "MATH202"
+                            ]
+                        },
+                        {
+                            "all_of": [
+                                "MATH204"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC350",
+        "prerequisites": {
+            "all_of": [
+                "CSC225",
+                "CSC230"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC355",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "CSC230",
+                        "CENG255",
+                        "ECE255"
+                    ]
+                },
+                {
+                    "all_of": [
+                        "MATH122"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC360",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "all_of": [
+                        "CSC225",
+                        "SENG265"
+                    ]
+                },
+                {
+                    "one_of": [
+                        "CSC230",
+                        "CENG255",
+                        "ECE255"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC361",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "all_of": [
+                        "SENG265"
+                    ]
+                },
+                {
+                    "one_of": [
+                        "CSC230",
+                        "CENG255",
+                        "ECE255"
+                    ]
+                }
+            ],
+            "pre_or_corequisites": {
+                "all_of": [
+                    "CSC226"
+                ]
+            }
+        }
+    },
+    {
+        "course_code": "CSC370",
+        "prerequisites": {
+            "all_of": [
+                "CSC225",
+                "SENG265"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC371",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "all_of": [
+                        "Principles of Mathematics 11",
+                        {
+                            "one_of": [
+                                "MATH100",
+                                "MATH102",
+                                "MATH120"
+                            ]
+                        }
+                    ]
+                },
+                "minimum third-year standing"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC375",
+        "prerequisites": {
+            "one_of": [
+                {
+                    "all_of": [
+                        "SENG265"
+                    ]
+                },
+                {
+                    "all_of": [
+                        "HINF130",
+                        {
+                            "pre_or_corequisites": {
+                                "all_of": [
+                                    "HINF140"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC402",
+        "prerequisites": {
+            "all_of": [
+                "CSC320",
+                "CSC360",
+                "CSC370"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC411",
+        "prerequisites": {
+            "all_of": [
+                "SENG310"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC412",
+        "prerequisites": {
+            "all_of": [
+                "Minimum third-year standing"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC413",
+    "prerequisites": {
+            "all_of": [
+                "SENG310"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC421",
+        "prerequisites": {
+            "all_of": [
+                "CSC226",
+                "Minimum fourth-year standing"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC423",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        {
+                            "all_of": [
+                                "CSC226",
+                                "Minimum third-year standing",
+                                "Earn a minimum grade of B+"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC424",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        {
+                            "all_of": [
+                                "CSC320",
+                                "Earn a minimum grade of B+"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC425",
+        "prerequisites": {
+            "all_of": [
+                "CSC320 - Foundations of Computer Science"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC426",
+        "prerequisites": {
+            "all_of": [
+                "CSC226 - Algorithms and Data Structures II"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC427",
+        "prerequisites": {
+            "all_of": [
+                "CSC226 - Algorithms and Data Structures II",
+                "SENG265 - Software Development Methods"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC428",
+        "prerequisites": {
+            "all_of": [
+                "CSC320 - Foundations of Computer Science"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC428A",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        {
+                            "all_of": [
+                                "CSC226 - Algorithms and Data Structures II",
+                                "CSC225 - Algorithms and Data Structures I",
+                                "MATH222 - Discrete and Combinatorial Mathematics"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC429",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "CSC320 - Foundations of Computer Science",
+                        "MATH222 - Discrete and Combinatorial Mathematics"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC431",
+        "prerequisites": {
+            "one_of": [
+                "SENG474 - Data Mining",
+                "STAT469 - Machine Learning"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC435",
+        "prerequisites": {
+            "all_of": [
+                "CSC320 - Foundations of Computer Science",
+                "CSC330 - Programming Languages"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC445",
+        "prerequisites": {
+            "all_of": [
+                "CSC225 - Algorithms and Data Structures I",
+                {
+                    "one_of": [
+                        "MATH110 - Matrix Algebra for Engineers",
+                        "MATH211 - Matrix Algebra I"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC446",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "CSC115 - Fundamentals of Programming II",
+                        "CSC116 - Fundamentals of Programming with Engineering Applications II"
+                    ]
+                },
+                {
+                    "one_of": [
+                        "PHYS342 - Computational Modeling and Analysis",
+                        "STAT252 - Statistics for Business",
+                        "STAT254 - Probability and Statistics for Engineers",
+                        "STAT255 - Statistics for Life Sciences I",
+                        "STAT260 - Introduction to Probability and Statistics I",
+                        "GEOG226 - Quantitative Methods in Geography"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC449",
+        "prerequisites": {
+            "all_of": [
+                "CSC349A"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC460",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "CSC355",
+                        "CENG355",
+                        "ECE355"
+                    ]
+                },
+                "CSC360"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC461",
+        "prerequisites": {
+            "all_of": [
+                "CSC360",
+                {
+                    "one_of": [
+                        "CSC361",
+                        "CENG460",
+                        "ECE363",
+                        "ECE458"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC462",
+        "prerequisites": {
+            "all_of": [
+                "CSC360",
+                {
+                    "one_of": [
+                        "CSC361",
+                        "CSC450",
+                        "CENG460",
+                        "ECE363",
+                        "ECE458"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC463",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "CSC361",
+                        "CSC450",
+                        "CENG460",
+                        "ECE363",
+                        "ECE458"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC464",
+        "prerequisites": {
+            "all_of": [
+                "CSC360"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC466",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "CSC361",
+                        "CSC450",
+                        "CENG460",
+                        "ECE363",
+                        "ECE458"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC467",
+        "prerequisites": {
+            "all_of": [
+                {
+                    "one_of": [
+                        "CSC361",
+                        "CSC450",
+                        "CENG460",
+                        "ECE363",
+                        "ECE458"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "course_code": "CSC471",
+        "prerequisites": {
+            "all_of": [
+                "CSC305"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC472",
+        "prerequisites": {
+            "all_of": [
+                "CSC305"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC473",
+        "prerequisites": {
+            "all_of": [
+                "CSC226 - Algorithms and Data Structures II (1.5)",
+                "CSC305 - Introduction to Computer Graphics (1.5)"
+            ]
+        }
+    },
+    {
+        "course_code": "CSC475",
+        "prerequisites": {
+            "two_of": [
+                "CSC330 - Programming Languages (1.5)",
+                "CSC360 - Operating Systems (1.5)",
+                "CSC370 - Database Systems (1.5)",
+                "ECE260 - Continuous-Time Signals and Systems (1.5)",
+                "ECE310 - Digital Signal Processing I (1.5)",
+                "ELEC260 - Continuous-Time Signals and Systems (1.5)",
+                "ELEC310 - Digital Signal Processing I (1.5)",
+                "SENG310 - Human Computer Interaction (1.5)",
+                "SENG330 - Object-Oriented Software Development (1.5)"
+            ]
+        }
+    }
+]
