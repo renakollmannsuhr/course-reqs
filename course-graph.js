@@ -10,7 +10,7 @@ async function generateNodes() {
 
         // Generate the list of nodes
         const nodes = courses.map(course => ({
-            data: { id: course.course_code }
+            data: { id: course.course_code, type: 'course' }
         }));
 
         return nodes;
