@@ -12,7 +12,7 @@ async function generateNodes(courses) {
 }
 
 // Function to generate intermediate connections
-async function generateConnections() {
+async function generateConnections(courses) {
     // TODO: more appropriately named edges because this includes all edges
     const intermediate_edges = [];
     const intermediate_nodes = [];
@@ -20,9 +20,9 @@ async function generateConnections() {
         // We also need to generate "intermediate nodes" for each of the
         // course's one-of and all-of requirements
         // If it's not a course code generate that node as well
-        for (requirement in course['prerequisites']) {
+        for (let requirement in course['prerequisites']) {
             // Create node for top level requirement
-            requirement_id = `${course.course_code}-${requirement}`;
+            let requirement_id = `${course.course_code}-${requirement}`;
             intermediate_nodes.push(
                 { data: { id: requirement_id, type: `${requirement}-join` } }
             );
@@ -35,7 +35,7 @@ async function generateConnections() {
             //traverseRequirement(requirement_id, requirement, intermediate_nodes, intermediate_edges);
         }
     }
-    return intermediate_nodes, intermediate_edges;
+    return [intermediate_nodes, intermediate_edges];
 }
 
 // Requirement is a key-value pair where the key is the type of requirement
@@ -66,17 +66,13 @@ async function traverseRequirement(parent_id, requirement, intermediate_nodes, i
 // Function to initialize Cytoscape
 async function initializeCytoscape() {
     // Fetch JSON data
-    try {
-        const response = await fetch('course_requirements.json');
-        const courses = await response.json();
-    } catch (error) {
-        console.error('Error fetching JSON data:', error);
-    }
+    const response = await fetch('course_requirements.json');
+    const courses = await response.json();
 
-    // Generate nodes
+    // // Generate nodes
     const nodes = await generateNodes(courses);
 
-    const connections = await generateConnections(courses);
+    const elements = await generateConnections(courses);
 
     // Initialize Cytoscape
     var cy = cytoscape({
@@ -84,6 +80,8 @@ async function initializeCytoscape() {
     
         elements: [ // list of graph elements to start with
             ...nodes,
+            ...elements[0],
+            //...elements[1],
             {
                 data: {id: "a"}
             },
