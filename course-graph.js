@@ -52,7 +52,7 @@ const names = [];
 
 async function traverseRequirement(parent_id, parent_requirements, intermediate_nodes, intermediate_edges) {
     const parent_list = parent_id.split('-');
-    const parent_type = parent_id.split('-')[parent_list - 1];
+    const parent_type = parent_id.split('-')[parent_list.length - 1];
 
     if (typeof parent_requirements === 'string') {
         console.log('IIIIIIIIIIIIIIIIIIIIIIIII', parent_requirements);
@@ -93,7 +93,7 @@ async function traverseRequirement(parent_id, parent_requirements, intermediate_
             }
 
             intermediate_edges.push(
-                { data: { id: `${requirement_id}_edge2`, source: parent_id, target: requirement_id, type: parent_type } }
+                { data: { id: `${requirement_id}_edge2`, source: parent_id, target: requirement_id, type: `${parent_type}_edge` } }
             );
             continue;
         }
