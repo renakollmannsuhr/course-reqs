@@ -126,9 +126,9 @@ function createLegend() {
     const legend = document.getElementById('legend');
     const items = [
         { color: '#EB8137', label: 'Course Node' },
-        { color: '#46BF14', label: '"Requires One-of the Above" Group Node' },
-        { color: '#DDEB37', label: '"Requires Two-of the Above" Group Node' },
-        { color: '#3371FF', label: '"Requires All-of the Above" Group Node' },
+        { color: '#46BF14', label: '"Requires One-of the Below" Group Node' },
+        { color: '#DDEB37', label: '"Requires Two-of the Below" Group Node' },
+        { color: '#3371FF', label: '"Requires All-of the Below" Group Node' },
         //{ color: '#46BF14', label: 'One-of Edge' },
         //{ color: '#DDEB37', label: 'Two-of Edge' },
         //{ color: '#3371FF', label: 'All-of Edge' }
