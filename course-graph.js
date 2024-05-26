@@ -186,6 +186,7 @@ async function initializeCytoscape() {
         container: document.getElementById('cy'), // container to render in
     
         elements: [ // list of graph elements to start with
+            { data: { id: 'CSC450', type: 'course' } },
             ...nodes,
             ...elements[0],
             ...elements[1],

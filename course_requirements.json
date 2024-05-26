@@ -141,7 +141,7 @@
             "pre_or_corequisites": {
                 "one_of": [
                     "GEOG226",
-                    "PSYC300A",
+                    "PSYC300",
                     "STAT254",
                     "STAT255",
                     "STAT260"
@@ -524,7 +524,7 @@
         "prerequisites": {
             "all_of": [
                 "CSC226",
-                "SENG265 - Software Development Methods"
+                "SENG265"
             ]
         }
     },
@@ -546,7 +546,7 @@
                             "all_of": [
                                 "CSC226",
                                 "CSC225",
-                                "MATH222 - Discrete and Combinatorial Mathematics"
+                                "MATH222"
                             ]
                         }
                     ]
@@ -561,7 +561,7 @@
                 {
                     "one_of": [
                         "CSC320",
-                        "MATH222 - Discrete and Combinatorial Mathematics"
+                        "MATH222"
                     ]
                 }
             ]
@@ -571,8 +571,8 @@
         "course_code": "CSC431",
         "prerequisites": {
             "one_of": [
-                "SENG474 - Data Mining",
-                "STAT469 - Machine Learning"
+                "SENG474",
+                "STAT469"
             ]
         }
     },
@@ -592,8 +592,8 @@
                 "CSC225",
                 {
                     "one_of": [
-                        "MATH110 - Matrix Algebra for Engineers",
-                        "MATH211 - Matrix Algebra I"
+                        "MATH110",
+                        "MATH211"
                     ]
                 }
             ]
@@ -611,12 +611,12 @@
                 },
                 {
                     "one_of": [
-                        "PHYS342 - Computational Modeling and Analysis",
-                        "STAT252 - Statistics for Business",
-                        "STAT254 - Probability and Statistics for Engineers",
-                        "STAT255 - Statistics for Life Sciences I",
-                        "STAT260 - Introduction to Probability and Statistics I",
-                        "GEOG226 - Quantitative Methods in Geography"
+                        "PHYS342",
+                        "STAT252",
+                        "STAT254",
+                        "STAT255",
+                        "STAT260",
+                        "GEOG226"
                     ]
                 }
             ]
@@ -766,12 +766,12 @@
                 "CSC330",
                 "CSC360",
                 "CSC370",
-                "ECE260 - Continuous-Time Signals and Systems (1.5)",
-                "ECE310 - Digital Signal Processing I (1.5)",
-                "ELEC260 - Continuous-Time Signals and Systems (1.5)",
-                "ELEC310 - Digital Signal Processing I (1.5)",
-                "SENG310 - Human Computer Interaction (1.5)",
-                "SENG330 - Object-Oriented Software Development (1.5)"
+                "ECE260",
+                "ECE310",
+                "ELEC260",
+                "ELEC310",
+                "SENG310",
+                "SENG330"
             ]
         }
     }
