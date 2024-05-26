@@ -93,7 +93,7 @@ async function traverseRequirement(parent_id, parent_requirements, intermediate_
             }
 
             intermediate_edges.push(
-                { data: { id: `${requirement_id}_edge2`, source: parent_id, target: requirement_id, type: parent_type } }
+                { data: { id: `${requirement_id}_edge2`, source: parent_id, target: requirement_id, type: `${parent_type}_edge` } }
             );
             continue;
         }
