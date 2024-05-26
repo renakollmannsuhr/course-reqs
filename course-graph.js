@@ -65,7 +65,7 @@ async function traverseRequirement(parent_id, parent_requirements, intermediate_
           return false;
         }
         return typeof obj[Symbol.iterator] === 'function';
-      }
+    }
 
     if (!isIterable(parent_requirements)) {
         console.log('PARENT_REQUIREMENTS: ', parent_requirements);
@@ -95,7 +95,7 @@ async function traverseRequirement(parent_id, parent_requirements, intermediate_
             intermediate_edges.push(
                 { data: { id: `${requirement_id}_edge2`, source: parent_id, target: requirement_id, type: parent_type } }
             );
-            return;
+            continue;
         }
 
         // if the requirement_obj is an object
@@ -105,13 +105,13 @@ async function traverseRequirement(parent_id, parent_requirements, intermediate_
             // (some pre-requisites are strings, but not course codes, so they need to be created)
             const requirement_id = `${parent_id}-${requirement_name}`;
             intermediate_nodes.push(
-                { data: { id: requirement_id, type: requirement_name } }
+                { data: { id: requirement_id, type: `${requirement_name}_join`} }
             );
 
             // connect requirement to parent
             console.log('3:', requirement_id);
             intermediate_edges.push(
-                { data: { id: `${requirement_id}_edge3`, source: parent_id, target: requirement_id, type: parent_type } }
+                { data: { id: `${requirement_id}_edge3`, source: parent_id, target: requirement_id, type: `${parent_type}_edge` } }
             );
 
             let requirements = requirement_obj[requirement_name];
