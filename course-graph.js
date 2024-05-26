@@ -48,11 +48,14 @@ async function generateConnections(courses) {
 // requirements: list of requirements for parent
 // intermediate_nodes: list of intermediate nodes
 // intermediate_edges: list of intermediate edges
+const names = [];
+
 async function traverseRequirement(parent_id, parent_requirements, intermediate_nodes, intermediate_edges) {
     const parent_list = parent_id.split('-');
     const parent_type = parent_id.split('-')[parent_list - 1];
 
     if (typeof parent_requirements === 'string') {
+        console.log('IIIIIIIIIIIIIIIIIIIIIIIII', parent_requirements);
         return;
     }
 
@@ -75,9 +78,18 @@ async function traverseRequirement(parent_id, parent_requirements, intermediate_
             // you need to create this if it doesn't already exist
             const requirement_id = requirement_obj;
             if (!requirement_id.startsWith('CSC')) {
-                intermediate_nodes.push(
-                    { data: { id: requirement_id, type: 'course' } }
-                );
+                // Check if the node name already exists in intermediate_nodes
+                const already_created = intermediate_nodes.reduce((acc, node) => {
+                        return acc && ((node.data === undefined) || node.data.id !== requirement_id);
+                }, true);
+
+                if (!names.includes(requirement_id)) {
+                    names.push(requirement_id);
+                    console.log("CREATED NEW THING");
+                    intermediate_nodes.push(
+                        { data: { id: requirement_id, type: 'course' } }
+                    );
+                }
             }
 
             intermediate_edges.push(
