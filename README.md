@@ -1,5 +1,7 @@
 # course-reqs
 
+This project was created as an entry for the VikeLabs hackathon of Spring 2024.
+
 # Running the site locally
 
 ## From the command line
